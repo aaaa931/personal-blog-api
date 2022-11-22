@@ -20,7 +20,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const webName = "/personal-blog/";
+// const webName = "/personal-blog/";
+const webName = "/";
 
 // user api
 app.get(`${webName}user`, async (req, res) => {
