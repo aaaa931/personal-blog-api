@@ -204,7 +204,7 @@ app.post(`${webName}addpost`, async (req, res) => {
     }
 });
 
-const server = app.listen(process.env.PORT || 5001, () => {
+const server = app.listen(process.env.PORT || 5000, () => {
     const port = server.address().port;
     console.log(`[Message] port ${port}`);
 });
