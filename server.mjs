@@ -204,13 +204,7 @@ app.post(`${webName}addpost`, async (req, res) => {
     }
 });
 
-// const server = app.listen(process.env.PORT || 5001, () => {
-//     const port = server.address().port;
-//     console.log(`[Message] port ${port}`);
-// });
-
-const server = app.listen(10001, () => {
-    // second api
+const server = app.listen(process.env.PORT || 5001, () => {
     const port = server.address().port;
-    console.log(`[Message] personal-blog port ${port}`);
+    console.log(`[Message] port ${port}`);
 });
