@@ -8,3 +8,14 @@
 
 * Firestore
 * express
+
+## 資料庫結構
+```
+config
+|-labels
+|-todolist
+posts
+|-個別貼文（id）
+users
+|-個別使用者（id）
+```
