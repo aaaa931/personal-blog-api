@@ -76,16 +76,20 @@ app.put(`${webName}post/:id`, async (req, res) => {
     // return {id, title, labels, date, img, context, owner}
     const id = req.params.id;
     const context = req.body.context;
-    const result = await postPut(id, context);
-    return res.send(result);
+    // const result = await postPut(id, context);
+    // return res.send(result);
+    await postPut(id, context);
+    return res.end();
 });
 
 // post delete api
 app.delete(`${webName}post/:id`, async (req, res) => {
     // delete post
     const id = req.params.id;
-    const result = await postDelete(id);
-    return res.send(result);
+    // const result = await postDelete(id);
+    // return res.send(result);
+    await postDelete(id);
+    return res.end();
 });
 
 // addPost api
@@ -104,10 +108,8 @@ app.post(`${webName}addpost`, async (req, res) => {
 app.get(`${webName}labels`, async (req, res) => {
     // get all labels
     // return ["label", "label"]
-    // const result = await labelsDefault();
-    // return res.send(result);
-    await labelsDefault();
-    return res.end();
+    const result = await labelsDefault();
+    return res.send(result);
 });
 
 // todolist api
