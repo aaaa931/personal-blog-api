@@ -34,7 +34,7 @@ export const postPut = async (id, context) => {
     })
         .then((res) => {
             console.log(`[Put][Post] post doc.id = ${id} success`);
-            result = true;
+            result = null;
         })
         .catch((e) => {
             console.log(`[Error][Post] post put failed, error = ${e}`);
@@ -49,7 +49,7 @@ export const postDelete = async (id) => {
     let result;
 
     await deleteDoc(doc(db, "posts", id));
-    result = "delete success";
+    result = null;
 
     return result;
 };

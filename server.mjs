@@ -37,7 +37,7 @@ app.post(`${webName}user`, async (req, res) => {
             : "https://cdn.pixabay.com/photo/2016/09/28/02/14/user-1699635_960_720.png";
     const result = await userAdd(name, avatar);
 
-    return result ? res.end() : res.send(result);
+    return result == null ? res.end() : res.send(result);
 });
 
 // postlist api
@@ -77,7 +77,7 @@ app.put(`${webName}post/:id`, async (req, res) => {
     const id = req.params.id;
     const context = req.body.context;
     const result = await postPut(id, context);
-    return result ? res.end() : res.send(result);
+    return result === null ? res.end() : res.send(result);
 });
 
 // post delete api
@@ -85,7 +85,7 @@ app.delete(`${webName}post/:id`, async (req, res) => {
     // delete post
     const id = req.params.id;
     const reuslt = await postDelete(id);
-    return result ? res.end() : res.send(result);
+    return result === null ? res.end() : res.send(result);
 });
 
 // addPost api

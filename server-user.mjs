@@ -44,7 +44,7 @@ export const userAdd = async (
 
         console.log(`[Post][User] new user doc.id = ${docRef.id}`);
         console.log(`[Post][User] new user data = ${JSON.stringify(req.body)}`);
-        return true;
+        return null;
     } catch (e) {
         console.error(`[Error] user post failed e = ${e}`);
         return e;
