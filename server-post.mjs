@@ -38,7 +38,7 @@ export const postPut = async (id, context) => {
         })
         .catch((e) => {
             console.log(`[Error][Post] post put failed, error = ${e}`);
-            result = "put error";
+            result = e;
         });
 
     return result;

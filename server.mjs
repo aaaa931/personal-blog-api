@@ -104,8 +104,10 @@ app.post(`${webName}addpost`, async (req, res) => {
 app.get(`${webName}labels`, async (req, res) => {
     // get all labels
     // return ["label", "label"]
-    const result = await labelsDefault();
-    return res.send(result);
+    // const result = await labelsDefault();
+    // return res.send(result);
+    await labelsDefault();
+    return res.end();
 });
 
 // todolist api
