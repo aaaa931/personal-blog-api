@@ -16,7 +16,7 @@ app.get(`${webName}user`, async (req, res) => {
     // get user
     // return [{id, name, avatar}]
     const result = await userDefault();
-    res.send(result);
+    return res.send(result);
 });
 
 app.get(`${webName}user/:name`, async (req, res) => {
@@ -24,7 +24,7 @@ app.get(`${webName}user/:name`, async (req, res) => {
     // return {id, name, avatar}
     const name = req.params.name;
     const result = await userFilterName(name);
-    res.send(result);
+    return res.send(result);
 });
 
 app.post(`${webName}user`, async (req, res) => {
@@ -37,7 +37,7 @@ app.post(`${webName}user`, async (req, res) => {
             : "https://cdn.pixabay.com/photo/2016/09/28/02/14/user-1699635_960_720.png";
     const result = await userAdd(name, avatar);
 
-    res.send(result);
+    return res.send(result);
 });
 
 // postlist api
@@ -47,7 +47,7 @@ app.get(`${webName}postlist`, async (req, res) => {
     const id = req.query.id;
     const type = req.query.type;
     const result = await postlistDefault(id, type);
-    res.send(result);
+    return res.send(result);
 });
 
 app.get(`${webName}postlist/:label`, async (req, res) => {
@@ -57,7 +57,7 @@ app.get(`${webName}postlist/:label`, async (req, res) => {
     const id = req.query.id;
     const type = req.query.type;
     const result = await postlistFilterLabel(id, type, label);
-    res.send(result);
+    return res.send(result);
 });
 
 // post api
@@ -67,7 +67,7 @@ app.get(`${webName}post/:id`, async (req, res) => {
     const id = req.params.id;
     // console.log(`id = ${id}`);
     const result = await postFilterId(id);
-    res.send(result);
+    return res.send(result);
 });
 
 // post put api
@@ -77,7 +77,7 @@ app.put(`${webName}post/:id`, async (req, res) => {
     const id = req.params.id;
     const context = req.body.context;
     const result = await postPut(id, context);
-    res.send(result);
+    return res.send(result);
 });
 
 // post delete api
@@ -85,7 +85,7 @@ app.delete(`${webName}post/:id`, async (req, res) => {
     // delete post
     const id = req.params.id;
     const result = await postDelete(id);
-    res.send(result);
+    return res.send(result);
 });
 
 // addPost api
@@ -97,7 +97,7 @@ app.post(`${webName}addpost`, async (req, res) => {
     const owner = req.body.name;
     const result = await postAdd(title, labels, context, img, owner);
 
-    res.send(result);
+    return res.send(result);
 });
 
 // labels api
@@ -105,7 +105,7 @@ app.get(`${webName}labels`, async (req, res) => {
     // get all labels
     // return ["label", "label"]
     const result = await labelsDefault();
-    res.send(result);
+    return res.send(result);
 });
 
 // todolist api
@@ -113,7 +113,7 @@ app.get(`${webName}todolist`, async (req, res) => {
     // get all todolist
     // return [[announcement], [active], [completed]]
     const result = await todolistDefault();
-    res.send(result);
+    return res.send(result);
 });
 
 const server = app.listen(process.env.PORT || 5000, () => {
