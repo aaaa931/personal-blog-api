@@ -84,7 +84,7 @@ app.put(`${webName}post/:id`, async (req, res) => {
 app.delete(`${webName}post/:id`, async (req, res) => {
     // delete post
     const id = req.params.id;
-    const reuslt = await postDelete(id);
+    const result = await postDelete(id);
     return result === null ? res.end() : res.send(result);
 });
 
